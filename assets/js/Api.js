@@ -24,7 +24,7 @@ class Api {
       super(url)
     }
   
-    async getRecipes () {
+    async getAllRecipes () {
       const data = await this.get()
       // on crée une variable car sinon il prend le await en compte sur le return
       return data.recipes

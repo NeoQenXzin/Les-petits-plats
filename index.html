@@ -29,13 +29,18 @@
     </header>
 
     <main>
+
+        <!-- Barre de recherche  -->
         <section class="section-search">
             <div class="search-bar">
                 <input id="searchbar" type="text" placeholder="Rechercher une recette">
                 <img id="icon-search" src="assets/img/search.svg" alt="icone de recherche">
             </div>
 
+        <!-- tags  -->
             <div class="tags-filtres"></div>
+
+        <!-- filtres  -->
             <div class="filtres-container">
 
                 <button id="buttonFilterIngredient" class="button-filtre">
@@ -53,7 +58,8 @@
 
         </section>
 
-
+        <!-- Recettes  -->
+        
         <section class="search-result">
 
         </section>
@@ -61,6 +67,9 @@
 
 
     <script src="assets/js/Api.js"></script>
+    <script src="assets/js/models/Recipe.js"></script>
+    <script src="assets/js/factories/recipesFactory.js"></script>
+    <script src="assets/js/pages/index.js"></script>
 </body>
 
 </html>
