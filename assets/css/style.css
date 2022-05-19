@@ -12,6 +12,7 @@ font-family: 'Roboto', sans-serif; */
 
 body {
     padding: 30px 50px;
+    background: #E5E5E5;
 }
 
 
@@ -94,6 +95,92 @@ section .section-search{
 
 /* Liste de recettes  */
 
-section .search-result {
+section.search-result {
     width: 98%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    gap: 50px;
+    margin-top: 100px;
+    
 }
+
+.recetteCard{
+    width: 380px;
+    height: 364px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid #3282F7; */
+    overflow: hidden;
+}
+
+.img-proto{
+    height: 178px;
+    width: 100%;
+    background: #C7BEBE;
+}
+
+.recette-content{
+    height: calc(364px - 178px);
+    background: #e7e7e7;
+    padding: 20px 20px;
+}
+
+/* .titre-duree-recette{
+} */
+.titre-duree-recette h2{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+.titre-duree-recette h2 span{
+    display: inline-block;
+    font-weight: 700;
+    /* width: 50px; */
+    
+}
+span.nom-recette{
+    max-width: 73%;
+}
+.titre-duree-recette img{
+    height: 20px;
+    width: 20px;
+    transform: translateY(-2px);
+}
+
+.ingredients-description-recette{
+    display: flex;
+    justify-content: space-between;
+}
+.ingredients-recette{
+    width: 171px;
+    height: 105px;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14.4px;
+}
+.ingredients-recette span{
+    font-weight: 400;
+}
+
+.description-recette{
+    width: 171px;
+    height: 109px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    max-height: 80px;
+  /* A faire en sass pour ... a la fin du paragraphe montrer  */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* padding-bottom: 20px; */
+
+}
+
+                    

@@ -13,16 +13,17 @@ class RecipeFactory {
           searchResultSection.innerHTML +=
             `
             <div class="recetteCard">
-
-                <p> ${id} </p>
-                <p> ${servings} </p>
-                <p> ${ingredients[1].ingredient} </p>
-                <p> ${ustensils[0]} </p>
-                <p> ${time} minutes </p>
-                <p> ${description} </p>
-                <p> ${appliance} </p>
-                <h2> ${name} <h2>
-
+                <div class="img-proto"></div>
+                <div class="recette-content">
+                    <div class="titre-duree-recette">
+                        <h2><span class="nom-recette"> ${name} </span> <span class="duree-recette"><img src="assets/img/time.svg" alt="icone horloge">  ${time} min</span><h2>
+                    </div>
+                    <div class="ingredients-description-recette">
+                        <div class="ingredients-recette"> 
+                        ${ingredients[1].ingredient} : ${ingredients[1].quantity} ${ingredients[1].unit ? ingredients[1].unit : ""} </div>
+                        <div class="description-recette">${description}</div>
+                    </div>
+                </div>
             </div>
             `
         }
