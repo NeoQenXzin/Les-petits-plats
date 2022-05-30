@@ -3,11 +3,11 @@ class Recipe {
         this._id = recipes.id,
         this._name = recipes.name,
         this._servings = recipes.servings
-        this._ingredients = recipes._ingredients
-        this._time = recipes._time
-        
-        this._appliance = recipes._appliance
-        this._ustensils = recipes._ustensils
+        this._ingredients = recipes.ingredients
+        this._time = recipes.time
+        this._description = recipes.description
+        this._appliance = recipes.appliance
+        this._ustensils = recipes.ustensils
     }
 
     get id() {
@@ -20,7 +20,7 @@ class Recipe {
         return this._servings
     }
     get ingredients() {
-        return "new Ingredient"()
+        return this._ingredients
     }
     get time() {
         return this._time
