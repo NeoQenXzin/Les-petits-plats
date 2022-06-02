@@ -33,7 +33,7 @@
         <!-- Barre de recherche  -->
         <section class="section-search">
             <div class="search-bar">
-                <input id="searchbar" type="text" placeholder="Rechercher une recette">
+                <input id="searchbar" type="search" value="" placeholder="Rechercher une recette">
                 <img id="icon-search" src="assets/img/search.svg" alt="icone de recherche">
             </div>
 
@@ -57,12 +57,10 @@
             </div>
 
         </section>
-
+        
+        <section class="search-result"></section>
         <!-- Recettes  -->
         
-        <section class="search-result">
-
-        </section>
     </main>
 
     <!-- script  -->
@@ -70,6 +68,7 @@
     <script src="assets/js/models/Recipe.js"></script>
     <script src="assets/js/models/Ingredient.js"></script>
     <script src="assets/js/factories/recipesFactory.js"></script>
+    <script src="assets/js/utils/searchbar.js"></script>
     <script src="assets/js/pages/index.js"></script>
 </body>
 
