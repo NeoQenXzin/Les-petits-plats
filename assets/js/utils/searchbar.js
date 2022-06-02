@@ -35,19 +35,3 @@ async function getAllrecipesSearch(keyword) {
     }
 })
 }
-// recherche occurence dans ingredient , description et titre recette
-// function mainSearch(searchBarRecherche){
-//     console.log(searchBarRecherche);
-// }
-// recherche occurence dans ingredient 
-// function occurenceIngredient(ingredient, recherche) {
-//     let ingredientTest = ingredient
-//     let rechercheCible = recherche
-
-//     for (i = 0; i < ingredient.length; i++) {
-//         if (rechercheCible.indexOf(ingredientTest[i]) === -1) {
-//             return false
-//         }
-//         console.log("occurence trouvée");
-//     }
-// }
