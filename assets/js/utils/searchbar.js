@@ -37,3 +37,5 @@ function mainSearch(searchBarRecherche){
         else {card.style.display = "none"}
     }
 }
+
+

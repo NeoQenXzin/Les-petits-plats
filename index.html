@@ -38,20 +38,30 @@
             </div>
 
         <!-- tags  -->
-            <div class="tags-filtres"></div>
+            <div class="tags-filtres">
+                <div class="tags-ingredients"></div>
+                <div class="tags-appareils"></div>
+                <div class="tags-ustensiles"></div>
+            </div>
 
         <!-- filtres  -->
             <div class="filtres-container">
 
-                <button id="buttonFilterIngredient" class="button-filtre">
-                  <span>Ingredients</span><span class="box-arrow"><i class="fas fa-chevron-down"></i></span>
-                </button>
-                <button id="buttonFilterAppareils" class="button-filtre">
-                    <span>Appareils</span><span class="box-arrow"><i class="fas fa-chevron-down"></i></span>
-                </button>
+               <div class="button-contain" id="button-contain-ingredients">
+            </div>
+                   <button id="buttonFilterIngredient" class="button-filtre">
+                        <span>Ingredients</span><span class="box-arrow"><i class="fas fa-chevron-down"></i></span>
+                    </button>
+                <div class="button-contain" id="button-contain-appareils">
+                </div>
+                    <button id="buttonFilterAppareils" class="button-filtre">
+                        <span>Appareils</span><span class="box-arrow"><i class="fas fa-chevron-down"></i></span>
+                    </button>
+                <div class="button-contain" id="button-contain-ustenciles">
+                </div>
                     <button id="buttonFilterUstensiles" class="button-filtre">
-                    <span>Ustenciles</span>  <span class="box-arrow"><i class="fas fa-chevron-down"></i></span>
-                </button>
+                        <span>Ustenciles</span>  <span class="box-arrow"><i class="fas fa-chevron-down"></i></span>
+                    </button>
 
 
             </div>
@@ -68,8 +78,9 @@
     <script src="assets/js/models/Recipe.js"></script>
     <script src="assets/js/models/Ingredient.js"></script>
     <script src="assets/js/factories/recipesFactory.js"></script>
-    <script src="assets/js/utils/searchbar.js"></script>
     <script src="assets/js/pages/index.js"></script>
+    <script src="assets/js/utils/searchbar.js"></script>
+    <script src="assets/js/utils/search-button-tags.js"></script>
 </body>
 
 </html>
