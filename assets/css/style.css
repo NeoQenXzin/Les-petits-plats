@@ -85,18 +85,77 @@ section .section-search {
     border: none;
 }
 
-#buttonFilterIngredient {
+#buttonFilterIngredient, #button-contain-ingredients {
     background: #3282F7;
 }
 
-#buttonFilterAppareils {
+#buttonFilterAppareils, #button-contain-appareils {
     background: #68D9A4;
 }
 
-#buttonFilterUstensiles {
+#buttonFilterUstensiles, #button-contain-ustenciles {
     background: #ED6454;
 }
 
+.searchfilterbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.searchfilterbar span {
+    width: 4%;
+    color: #FFFFFF;
+}
+
+.button-contain{
+    flex-direction: column;
+    border-radius: 5px;
+    
+}
+.button-contain input{
+    width: 95%;
+    height: 69px;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    border: none;
+}
+#searchbar-appareils{
+    background: #68D9A4;
+}
+#searchbar-ustenciles{
+    background: #ED6454;
+}
+#searchbar-ingredients{
+    background: #3282F7;
+}
+#searchbar-appareils::placeholder, #searchbar-ustenciles::placeholder,#searchbar-ingredients::placeholder{
+    opacity: 50%;
+    color: #FFFFFF;
+}
+
+.search-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 50vw;
+    flex-wrap: wrap;
+    padding: 15px;
+    gap:  0px 10px;
+}
+.search-list button {
+    border: none;
+    background: transparent;
+    color: #FFFFFF;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    display: flex;   
+}
+.search-list button:hover{
+    opacity: .5;
+}
 
 /* Liste de recettes  */
 
@@ -107,7 +166,7 @@ section.search-result {
     justify-content: space-between;
     gap: 50px;
     margin-top: 100px;
-
+    position: relative;
 }
 
 .recetteCard {
