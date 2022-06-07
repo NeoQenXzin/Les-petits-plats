@@ -163,5 +163,11 @@ function listSearch(searchBarRecherche){
 function displayTag(tag){
     console.log(tag);
     tagsTemplateUstenciles = document.querySelector('.tags-ustensiles')
-    tagsTemplateUstenciles.innerHTML += ` <div>${tag.innerText} </div>`
+    tagsTemplateUstenciles.innerHTML += ` <div class="tag-style" id="${tag.innerText}">${tag.innerText} <span  onclick="supprimerTag('${tag.innerText}')"> <i class="far fa-times-circle"></i> </span></div>`
+}
+// fonction supprimer tag
+function supprimerTag(tag){
+    const tagSelect= document.getElementById(tag)
+    console.log(tagSelect);
+    tagSelect.remove()
 }

@@ -60,6 +60,46 @@ section .section-search {
     height: 32.06px;
     width: 32.06px;
 }
+/* tags  */
+.tags-filtres{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+.tag-style {
+    padding: 7px 12px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+}
+.tag-style span {
+    cursor: pointer;
+
+}
+.tags-ustensiles, .tags-appareils, .tags-ingredients{
+    margin-top: 15px;
+    display:flex;
+    gap: 5px;
+}
+.tags-ustensiles .tag-style, .tags-appareils .tag-style, .tags-ingredients .tag-style{
+    border-radius: 5px;
+    display: flex;
+    gap: 5px;
+    justify-content: space-evenly;
+
+}
+
+.tags-ustensiles .tag-style{
+    background: #ED6454;
+}
+.tags-appareils .tag-style{
+    background: #68D9A4;;
+}
+.tags-ingredients .tag-style{
+    background: #3282F7;
+}
+
 
 /* tags filtres  */
 
