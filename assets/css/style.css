@@ -146,6 +146,9 @@ section .section-search {
     width: 4%;
     color: #FFFFFF;
 }
+.arrow-up{
+    cursor: pointer;
+}
 
 .button-contain{
     flex-direction: column;
