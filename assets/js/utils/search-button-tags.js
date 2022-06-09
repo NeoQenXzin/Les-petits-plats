@@ -20,7 +20,7 @@ ustensilesButton.addEventListener('click', rechercheRecetteUstencile)
 async function rechercheRecetteIngredient() {
     const listIngredients = await app.getAllIngredients()
     // On reinitialise l'affichage des boutons filtres
-    if(ustensilesButton.style.display === 'none' || appareilButton.style.display === 'none'){
+    if (ustensilesButton.style.display === 'none' || appareilButton.style.display === 'none') {
         inputUstenciles.style.display = 'none'
         ustensilesButton.style.display = 'flex'
         inputAppareils.style.display = 'none'
@@ -37,9 +37,10 @@ async function rechercheRecetteIngredient() {
     `
     //On construit le template de la liste
     const searchList = document.querySelector('.search-list-container-ingredients')
-    for(let ingredient of listIngredients){
+    for (let ingredient of listIngredients) {
+        let newingredient = ingredient.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,' ')
         searchList.innerHTML += `
-           <button id="${ingredient}" class="buttons-list" onclick="displayTag(${ingredient}, id='ingredient')">${ingredient}</button
+           <button id="${newingredient}" class="buttons-list" onclick="displayTag('${newingredient}', id='newingredient')">${newingredient}</button
         `
     }
 }
@@ -48,7 +49,7 @@ async function rechercheRecetteIngredient() {
 async function rechercheRecetteUstencile() {
     const listUstenciles = await app.getAllUstensils()
     // On reinitialise l'affichage des boutons filtres
-    if(ingredientButton.style.display === 'none' || appareilButton.style.display === 'none'){
+    if (ingredientButton.style.display === 'none' || appareilButton.style.display === 'none') {
         inputIngredient.style.display = 'none'
         ingredientButton.style.display = 'flex'
         inputAppareils.style.display = 'none'
@@ -65,9 +66,9 @@ async function rechercheRecetteUstencile() {
     `
     //On construit le template de la liste
     const searchList = document.querySelector('.search-list-container-ustenciles')
-    for(let ustencile of listUstenciles){
+    for (let ustencile of listUstenciles) {
         searchList.innerHTML += `
-           <button id="${ustencile}" class="buttons-list" onclick="displayTag(${ustencile}, id='ustencile')">${ustencile}</button
+           <button id="${ustencile}" class="buttons-list" onclick="displayTag('${ustencile}', id='ustencile')">${ustencile}</button
         `
     }
 }
@@ -76,7 +77,7 @@ async function rechercheRecetteUstencile() {
 async function rechercheRecetteAppareil() {
     const listAppareils = await app.getAllAppliances()
     // On reinitialise l'affichage des boutons filtres
-    if(ingredientButton.style.display === 'none' || ustensilesButton.style.display === 'none'){
+    if (ingredientButton.style.display === 'none' || ustensilesButton.style.display === 'none') {
         inputIngredient.style.display = 'none'
         ingredientButton.style.display = 'flex'
         inputUstenciles.style.display = 'none'
@@ -93,64 +94,60 @@ async function rechercheRecetteAppareil() {
     `
     //On construit le template de la liste
     const searchList = document.querySelector('.search-list-container-appareil')
-    for(let appareil of listAppareils){
+    for (let appareil of listAppareils) {
         searchList.innerHTML += `
-           <button id="${appareil}" class="buttons-list" onclick="displayTag(${appareil}, id='appareil')">${appareil}</button
+           <button id="${appareil}" class="buttons-list" onclick="displayTag('${appareil}', id='appareil')">${appareil}</button
         `
     }
 }
 
 // Fermer filtre si clic hors d'un input button filtre recherche
 const closeFilterIfOutInput = (() => {
-    return function ({ target: el }) {
- let inputIngredientSearch = document.getElementById('searchbar-ingredients')
- let inputAppareilsSearch = document.getElementById('searchbar-appareils')
- let inputUstencilesSearch = document.getElementById('searchbar-ustenciles')
-        if (el === inputIngredientSearch )  {
+    return function ({
+        target: el
+    }) {
+        let inputIngredientSearch = document.getElementById('searchbar-ingredients')
+        let inputAppareilsSearch = document.getElementById('searchbar-appareils')
+        let inputUstencilesSearch = document.getElementById('searchbar-ustenciles')
+        if (el === inputIngredientSearch) {
             id = 'ingredient'
-      } 
-        else if (el === inputAppareilsSearch )  {
+        } else if (el === inputAppareilsSearch) {
             id = 'appareil'
-      } 
-        else if (el === inputUstencilesSearch )  {
+        } else if (el === inputUstencilesSearch) {
             id = 'ustencile'
-      } 
-      else{
-          id = 'nothing'
-      }
-      if(el !== inputIngredientSearch && el !== inputAppareilsSearch && el !== inputUstencilesSearch){
-          closeFilter(id)
-      }
+        } else {
+            id = 'nothing'
+        }
+        if (el !== inputIngredientSearch && el !== inputAppareilsSearch && el !== inputUstencilesSearch) {
+            closeFilter(id)
+        }
     }
-  })()
-  document.addEventListener('click', closeFilterIfOutInput)
-  
+})()
+document.addEventListener('click', closeFilterIfOutInput)
+
 
 // Fermer un filtre en cliquant sur la flêche
-  function closeFilter(id){
-      if(id === 'ingredient'){
+function closeFilter(id) {
+    if (id === 'ingredient') {
         ingredientButton.style.display = 'flex'
         inputIngredient.style.display = 'none'
-      }
-      else if(id === 'appareil'){
+    } else if (id === 'appareil') {
         appareilButton.style.display = 'flex'
         inputAppareils.style.display = 'none'
-      }
-      else if(id === 'ustencile'){
+    } else if (id === 'ustencile') {
         ustensilesButton.style.display = 'flex'
         inputUstenciles.style.display = 'none'
-      }  
-      else {
-          closeAllFilters()
-      }
-  }
+    } else {
+        closeAllFilters()
+    }
+}
 
-  // Fermer tout les filtres
-  function closeAllFilters() {
+// Fermer tout les filtres
+function closeAllFilters() {
     ingredientButton.style.display = 'flex'
     inputIngredient.style.display = 'none'
     appareilButton.style.display = 'flex'
     inputAppareils.style.display = 'none'
     ustensilesButton.style.display = 'flex'
     inputUstenciles.style.display = 'none'
-  }
+}

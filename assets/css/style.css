@@ -207,6 +207,13 @@ section .section-search {
 }
 
 /* Liste de recettes  */
+.hide{
+    display: none;
+}
+.show{
+    display: flex;
+    flex-direction: column;
+}
 
 section.search-result {
     width: 98%;
@@ -222,8 +229,7 @@ section.search-result {
     width: 380px;
     height: 364px;
     border-radius: 5px;
-    display: flex;
-    flex-direction: column;
+    
     /* border: 1px solid #3282F7; */
     overflow: hidden;
 }

@@ -14,7 +14,7 @@ function rechercheStart() {
     const allCards = document.querySelectorAll('.recette-card')
     for(i=0; i< allCards.length; i++){
         console.log(allCards[i]);
-        allCards[i].style.display = "flex"    
+        allCards[i].classList.add('show')    
     }
     }
 }
@@ -32,13 +32,13 @@ function mainSearch(searchBarRecherche){
         if(nomRecette.textContent.toLowerCase().match(searchBarRecherche.toLowerCase()) ||
         descriptionRecette.textContent.toLowerCase().match(searchBarRecherche.toLowerCase()) || 
         ingredientsRecette.textContent.toLowerCase().match(searchBarRecherche.toLowerCase())) {
-            card.style.display = "flex"
+            
             card.classList.add('show')
             if(card.classList.contains('hide')){
                 card.classList.remove('hide')
             }
         }
-        else {card.style.display = "none"
+        else {
         card.classList.add('hide')
         if(card.classList.contains('show')){
             card.classList.remove('show')

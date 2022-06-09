@@ -15,7 +15,7 @@ class RecipeFactory {
             const searchResultSection = document.querySelector('.search-result')
             searchResultSection.innerHTML +=
                 `
-                    <div class="recette-card">
+                    <div class="recette-card show">
                 
                         <div class="img-proto"></div>
                         <div class="recette-content">
