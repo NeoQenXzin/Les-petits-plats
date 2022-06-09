@@ -142,6 +142,10 @@ section .section-search {
     justify-content: space-between;
     align-items: center;
 }
+.searchfilterbar input:focus{
+    outline: none;
+    border: none;
+}
 .searchfilterbar span {
     width: 4%;
     color: #FFFFFF;
@@ -194,6 +198,8 @@ section .section-search {
     color: #FFFFFF;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
+    font-size: 18px;
+    line-height: 21.6px;
     display: flex;   
 }
 .search-list button:hover{

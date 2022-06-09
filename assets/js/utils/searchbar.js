@@ -29,13 +29,23 @@ function mainSearch(searchBarRecherche){
         const descriptionRecette = card.querySelector('.description-recette')
         const nomRecette = card.querySelector('.nom-recette')
 
-        if(nomRecette.textContent.toLowerCase().includes(searchBarRecherche.toLowerCase()) ||
-        descriptionRecette.textContent.toLowerCase().includes(searchBarRecherche.toLowerCase()) || 
-        ingredientsRecette.textContent.toLowerCase().includes(searchBarRecherche.toLowerCase())) {
-            card.style.display = "flex"    
+        if(nomRecette.textContent.toLowerCase().match(searchBarRecherche.toLowerCase()) ||
+        descriptionRecette.textContent.toLowerCase().match(searchBarRecherche.toLowerCase()) || 
+        ingredientsRecette.textContent.toLowerCase().match(searchBarRecherche.toLowerCase())) {
+            card.style.display = "flex"
+            card.classList.add('show')
+            if(card.classList.contains('hide')){
+                card.classList.remove('hide')
+            }
         }
-        else {card.style.display = "none"}
+        else {card.style.display = "none"
+        card.classList.add('hide')
+        if(card.classList.contains('show')){
+            card.classList.remove('show')
+        }
     }
+    }
+    // actualSearchTab()
 }
 
 

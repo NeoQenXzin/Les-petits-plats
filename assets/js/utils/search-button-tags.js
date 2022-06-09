@@ -30,7 +30,9 @@ async function rechercheRecetteIngredient() {
     ingredientButton.style.display = 'none'
     inputIngredient.style.display = 'flex'
     inputIngredient.innerHTML = `
-    <div class="searchfilterbar"><input id="searchbar-ingredients" type="search" value="" placeholder="Rechercher un ingredient" onclick="listRechercheStart()"><span class="box-arrow arrow-up" onclick="closeFilter(id = 'ingredient')"><i class="fas fa-chevron-up"></i></span></div>
+    <div class="searchfilterbar"><input id="searchbar-ingredients" type="search" value="" placeholder="Rechercher un ingredient" onclick="listRechercheStart('ingredients')">
+        <span class="box-arrow arrow-up" onclick="closeFilter(id = 'ingredient')"><i class="fas fa-chevron-up"></i></span>
+    </div>
         <div class="search-list-container-ingredients search-list"></div>
     `
     //On construit le template de la liste
@@ -56,7 +58,9 @@ async function rechercheRecetteUstencile() {
     ustensilesButton.style.display = 'none'
     inputUstenciles.style.display = 'flex'
     inputUstenciles.innerHTML = `
-    <div class="searchfilterbar"><input id="searchbar-ustenciles" type="search" value="" placeholder="Rechercher un ustenciles" onclick="listRechercheStart()"><span class="box-arrow arrow-up" onclick="closeFilter(id = 'ustencile')"><i class="fas fa-chevron-up"></i></span></div>
+    <div class="searchfilterbar"><input id="searchbar-ustenciles" type="search" value="" placeholder="Rechercher un ustenciles" onclick="listRechercheStart('ustenciles')">
+        <span class="box-arrow arrow-up" onclick="closeFilter(id = 'ustencile')"><i class="fas fa-chevron-up"></i></span>
+    </div>
         <div class="search-list-container-ustenciles search-list"></div>
     `
     //On construit le template de la liste
@@ -82,7 +86,9 @@ async function rechercheRecetteAppareil() {
     appareilButton.style.display = 'none'
     inputAppareils.style.display = 'flex'
     inputAppareils.innerHTML = `
-        <div class="searchfilterbar"><input id="searchbar-appareils" type="search" value="" placeholder="Rechercher un appareil" onclick="listRechercheStart()"><span class="box-arrow arrow-up" onclick="closeFilter(id = 'appareil')"><i class="fas fa-chevron-up"></i></span></div>
+        <div class="searchfilterbar"><input id="searchbar-appareils" type="search" value="" placeholder="Rechercher un appareil" onclick="listRechercheStart('appareils')">
+            <span class="box-arrow arrow-up" onclick="closeFilter(id = 'appareil')"><i class="fas fa-chevron-up"></i></span>
+        </div>
         <div class="search-list-container-appareil search-list"></div>
     `
     //On construit le template de la liste
@@ -148,67 +154,3 @@ const closeFilterIfOutInput = (() => {
     ustensilesButton.style.display = 'flex'
     inputUstenciles.style.display = 'none'
   }
-
-
-
-  //Fonction tri liste par input
-
-
-function listRechercheStart() {
-    const listSearchIngredients = document.getElementById('searchbar-ingredients')
-    const listSearchAppareils = document.getElementById('searchbar-appareils')
-    const listSearchUstenciles = document.getElementById('searchbar-ustenciles')
-    listSearchIngredients.addEventListener('keyup', () => {
-        if(listSearchIngredients.value.length > 0){
-            // console.log(listSearchBar.value);
-            listFiltreRecherche(listSearchIngredients.value)
-            // listSearch(listSearchBar.value)
-        }
-    })
-    listSearchAppareils.addEventListener('keyup', () => {
-        if(listSearchAppareils.value.length > 0){
-            // console.log(listSearchBar.value);
-            listFiltreRecherche(listSearchAppareils.value)
-            // listSearch(listSearchBar.value)
-        }
-    })
-    listSearchUstenciles.addEventListener('keyup', () => {
-        if(listSearchUstenciles.value.length > 0){
-            // console.log(listSearchBar.value);
-            listFiltreRecherche(listSearchUstenciles.value)
-            // listSearch(listSearchBar.value)
-        }
-    })
-   
-}
-
-function listFiltreRecherche(recherche){
-    const allButtonOfList = document.querySelectorAll('.buttons-list')
-    // console.log(allButtonOfList);
-    for(let button of allButtonOfList){
-        if(button.id.toLocaleLowerCase().includes(recherche.toLocaleLowerCase())){
-            button.style.display = 'flex'
-        }
-        else{
-            button.style.display = 'none'
-        }
-    }
-}
-
-
-// recherche occurence dans ingredient , description et titre recette
-function listSearch(searchBarRecherche){
-    const allCards = document.querySelectorAll('.recette-card')
-    for(let card of allCards){
-        const ingredientsRecette = card.querySelector('.ingredients-recette')
-        const descriptionRecette = card.querySelector('.description-recette')
-        const nomRecette = card.querySelector('.nom-recette')
-
-        if(nomRecette.textContent.toLowerCase().includes(searchBarRecherche.toLowerCase()) ||
-        descriptionRecette.textContent.toLowerCase().includes(searchBarRecherche.toLowerCase()) || 
-        ingredientsRecette.textContent.toLowerCase().includes(searchBarRecherche.toLowerCase())) {
-            card.style.display = "flex"    
-        }
-        else {card.style.display = "none"}
-    }
-}
