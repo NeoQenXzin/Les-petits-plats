@@ -1,41 +1,24 @@
-// Je récupère la liste des recette affichée
-// function actualSearchTab(){
-//     const allCards = document.querySelectorAll('.recette-card')
-//     const newList = []
-//     for(let card of allCards){
-//         const ingredientsRecette = card.querySelector('.ingredients-recette')
-//         const descriptionRecette = card.querySelector('.description-recette')
-//         const nomRecette = card.querySelector('.nom-recette')
-//         if(nomRecette.textContent.toLowerCase().match(searchBarRecherche.toLowerCase()) ||
-//         descriptionRecette.textContent.toLowerCase().match(searchBarRecherche.toLowerCase()) || 
-//         ingredientsRecette.textContent.toLowerCase().match(searchBarRecherche.toLowerCase())) {
-//             // card.style.display = "flex"    
-//             newList.push(card)
-//         }
-//         // else {card.style.display = "none"}
-//     }
-//     return newList
-// }
-
-// Je récupère la liste des recette affichée
-function actualSearchTab(){
-    const newList = []
-    const allCards = document.querySelectorAll('.recette-card.show')
-    for(let card of allCards){ 
-            newList.push(card)
-            console.log('thats it');      
-        console.log(newList);
+// Affiche list recherche sous boutton filtre
+function listFiltreRecherche(recherche){
+    const allButtonOfList = document.querySelectorAll('.buttons-list')
+    let nbreButton = 0
+    for(let button of allButtonOfList){
+        if(recherche === 'null'){
+            button.style.display = 'flex'
+        }
+        else if(button.id.toLowerCase().match(recherche.toLowerCase())){
+            button.style.display = 'flex'
+            nbreButton++
+        }
+        else{
+            button.style.display = 'none'
+            
+        }
     }
-    return newList
+    if(nbreButton === 0){
+        console.log('Aucun résultats trouvé');
+    }
 }
-// Je la passe a mes boutons filtres pour la recherche avancé
-// Je nouvelle liste avec les tags
-
-
-
-
-
-
 //Fonction tri liste par input bouton filtre
 function listRechercheStart(categorie) {
     const listSearchIngredients = document.getElementById('searchbar-ingredients')
@@ -78,46 +61,4 @@ function listRechercheStart(categorie) {
 
     }
    
-}
-// Affiche list recherche sous boutton filtre
-function listFiltreRecherche(recherche){
-    const allButtonOfList = document.querySelectorAll('.buttons-list')
-    let nbreButton = 0
-    for(let button of allButtonOfList){
-        if(recherche === 'null'){
-            button.style.display = 'flex'
-        }
-        else if(button.id.toLowerCase().match(recherche.toLowerCase())){
-            button.style.display = 'flex'
-            nbreButton++
-        }
-        else{
-            button.style.display = 'none'
-            
-        }
-    }
-    if(nbreButton === 0){
-        console.log('Aucun résultats trouvé');
-    }
-}
-
-
-// Recherche principale 
-// recherche occurence dans ingredient , description et titre recette
-function listSearch(searchBarRecherche){
-    const allCards = document.querySelectorAll('.recette-card')
-    const newList = []
-    for(let card of allCards){
-        const ingredientsRecette = card.querySelector('.ingredients-recette')
-        const descriptionRecette = card.querySelector('.description-recette')
-        const nomRecette = card.querySelector('.nom-recette')
-        if(nomRecette.textContent.toLowerCase().match(searchBarRecherche.toLowerCase()) ||
-        descriptionRecette.textContent.toLowerCase().match(searchBarRecherche.toLowerCase()) || 
-        ingredientsRecette.textContent.toLowerCase().match(searchBarRecherche.toLowerCase())) {
-            // card.style.display = "flex"    
-            newList.push(card)
-        }
-        // else {card.style.display = "none"}
-    }
-    return newList
 }
