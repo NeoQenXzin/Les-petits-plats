@@ -205,6 +205,15 @@ section .section-search {
 .search-list button:hover{
     opacity: .5;
 }
+/* si pas de resultat  de recherche */
+#no-result {
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    font-size: 36px;
+}
+
 
 /* Liste de recettes  */
 .hide{
