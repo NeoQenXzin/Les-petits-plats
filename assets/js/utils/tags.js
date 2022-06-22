@@ -13,6 +13,7 @@ function displayTag(tag, id){
             }    
         }
         tagsTemplateIngredients.innerHTML += ` <div class="tag-style" id="${tag}">${tag.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,'_')} <span  onclick="supprimerTag('${tag}')"> <i class="far fa-times-circle"></i> </span></div>`
+        tagsSaveIngredients.push(tag.toLowerCase())
     }
     else if(id === 'ustencile'){
         for(let tagId of tagsId){
@@ -21,6 +22,7 @@ function displayTag(tag, id){
             }    
         }
         tagsTemplateUstenciles.innerHTML += ` <div class="tag-style" id="${tag}">${tag} <span  onclick="supprimerTag('${tag}')"> <i class="far fa-times-circle"></i> </span></div>`
+        tagsSaveUstenciles.push(tag.toLowerCase())
     }
     else if(id === 'appareil'){
         for(let tagId of tagsId){
@@ -29,11 +31,30 @@ function displayTag(tag, id){
             }    
         }
         tagsTemplateAppareils.innerHTML += ` <div class="tag-style" id="${tag}">${tag} <span  onclick="supprimerTag('${tag}')"> <i class="far fa-times-circle"></i> </span></div>`
+        tagsSaveAppareils.push(tag.toLowerCase())
     }
+    //On reinitialise la barre de recherche et on actualise la recherche avec le tags
+    searchBar.value = ""
+    rechercheStart()
 }
 // fonction supprimer tag
 function supprimerTag(tag){
     const tagSelect= document.getElementById(tag)
     console.log(tagSelect);
     tagSelect.remove()
+    // Supprime tags du tableau de sauvegarde
+   let  myIndexIngr = tagsSaveIngredients.indexOf(tag)
+if (myIndexIngr !== -1) {
+   tagsSaveIngredients.splice(myIndexIngr, 1)
+}
+   let  myIndexApp = tagsSaveAppareils.indexOf(tag)
+if (myIndexApp !== -1) {
+   tagsSaveAppareils.splice(myIndexApp, 1)
+}
+   let  myIndexUst = tagsSaveUstenciles.indexOf(tag)
+if (myIndexUst !== -1) {
+   tagsSaveUstenciles.splice(myIndexUst, 1)
+}
+//On actualise la recherche
+rechercheStart() 
 }

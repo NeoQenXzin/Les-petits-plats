@@ -16,7 +16,7 @@ function listFiltreRecherche(recherche){
         }
     }
     if(nbreButton === 0){
-        console.log('Aucun résultats trouvé');
+        console.log('Aucun résultats');
     }
 }
 //Fonction tri liste par input bouton filtre

@@ -20,6 +20,7 @@ let recettesFiltrees;
 // Afficher et générer template filtrage par ingrédient 
 async function rechercheRecetteIngredient() {
     const listIngredients = await app.getAllIngredients(recettesFiltrees)
+    console.log(recettesFiltrees);
     console.log(listIngredients);
     // On reinitialise l'affichage des boutons filtres
     initButtonFilter()
@@ -35,22 +36,18 @@ async function rechercheRecetteIngredient() {
     //On construit le template de la liste
     const searchList = document.querySelector('.search-list-container-ingredients')
     for (let ingredient of listIngredients) {
-        // for(let i =0; i< mainBarRecherche.length; i++){
-            // if(mainBarRecherche[i].includes('ingredient')){
                 let newingredient = ingredient.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,' ')
                 searchList.innerHTML += `
                 <button id="${newingredient}" class="buttons-list" onclick="displayTag('${newingredient}', id='newingredient')">${newingredient}</button
                 `
-            // }
-
-        // }
     }
 }
 
 // Afficher et générer template filtrage par ustenciles
 async function rechercheRecetteUstencile() {
-    const listUstenciles = await app.getAllUstensils()
+    const listUstenciles = await app.getAllUstensils(recettesFiltrees)
     console.log(listUstenciles);
+    console.log(recettesFiltrees);
 
     // On reinitialise l'affichage des boutons filtres
     initButtonFilter()
@@ -74,7 +71,9 @@ async function rechercheRecetteUstencile() {
 
 // Afficher et générer template filtrage par appareils
 async function rechercheRecetteAppareil() {
-    const listAppareils = await app.getAllAppliances()
+    const listAppareils = await app.getAllAppliances(recettesFiltrees)
+    console.log(recettesFiltrees);
+    console.log(listAppareils);
     // On reinitialise l'affichage des boutons filtres
     initButtonFilter()
     //On remplace le bouton par un input

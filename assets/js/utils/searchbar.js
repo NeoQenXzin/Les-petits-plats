@@ -1,12 +1,22 @@
 /**Option1 recherche avec while/for */
 
 const noResultDiv = document.getElementById('no-result')
+//recherche tags
+let tagsSaveIngredients = []
+let tagsSaveAppareils = []
+let tagsSaveUstenciles = []
+
 // Selectionner la barre de recherche
 const searchBar = document.getElementById('searchbar')
 // mettre ecouteur d'evenement sur input se declenche a partir de 3 lettre
 searchBar.addEventListener('keyup', rechercheStart)
 
 async function rechercheStart() {
+    // si recherche tag en cours
+    console.log(tagsSaveIngredients);
+    if(tagsSaveIngredients[0] || tagsSaveAppareils[0] || tagsSaveUstenciles[0]){
+        newrecherche(searchBar.value.toLowerCase())
+    }
     if (searchBar.value.length > 2) {
         mainSearch(searchBar.value)
         // Je recupere les recettes correspondantes a la recherche dans un tableau
@@ -22,7 +32,6 @@ async function rechercheStart() {
             allCards[i].classList.add('show')
         }
         noResultDiv.innerText =''
-
     }
 }
 
@@ -61,4 +70,20 @@ function mainSearch(searchBarRecherche) {
     }
 
    
+}
+
+
+// Recherche avec tags
+async function newrecherche(searchBarValue){
+    // console.log(searchBarValue, tagsSaveIngredients, recettesFiltrees);
+    recettesFiltrees = await app.getMultiSearchingRecipe(tagsSaveIngredients, tagsSaveAppareils, tagsSaveUstenciles)
+    console.log(recettesFiltrees)
+    
+    if(searchBarValue.length > 2){
+        mainSearch(searchBarValue)
+    }
+    
+   app.displayFilterdRecipes(recettesFiltrees)
+    
+    // recettesFiltrees = await app.getSearchingRecipe(searchBar.value)
 }
