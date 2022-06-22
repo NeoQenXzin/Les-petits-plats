@@ -150,11 +150,10 @@ return RecipeMultiSearchingTab
 
       // Afficher recette filtrées
       async displayFilterdRecipes(recipesFilteredList) {
-        const RecetteFactory = new RecipeFactory()
-        recipesFilteredList.forEach(recipe => {
-          const Recette = RecetteFactory.createRecipe(recipe)
-          RecetteFactory.displayRecipeCardDOM(Recette)
-        })
+        const searchResultSectionBasic = document.querySelector('.search-result')
+        searchResultSectionBasic.innerHTML = ''
+        this.displayRecipes(recipesFilteredList)
+        
       }
 
     // initialisation liste recette au lancement du site

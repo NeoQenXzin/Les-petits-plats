@@ -13,6 +13,7 @@ class RecipeFactory {
          displayRecipeCardDOM (data) {
 
             const searchResultSection = document.querySelector('.search-result')
+
             searchResultSection.innerHTML +=
                 `
                     <div class="recette-card show">

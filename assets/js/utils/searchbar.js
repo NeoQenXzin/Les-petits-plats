@@ -12,11 +12,12 @@ const searchBar = document.getElementById('searchbar')
 searchBar.addEventListener('keyup', rechercheStart)
 
 async function rechercheStart() {
+    console.log(tagsSaveIngredients,  tagsSaveAppareils, tagsSaveUstenciles);
     // si recherche tag en cours
-    console.log(tagsSaveIngredients);
     if(tagsSaveIngredients[0] || tagsSaveAppareils[0] || tagsSaveUstenciles[0]){
         newrecherche(searchBar.value.toLowerCase())
     }
+
     if (searchBar.value.length > 2) {
         mainSearch(searchBar.value)
         // Je recupere les recettes correspondantes a la recherche dans un tableau
@@ -79,11 +80,12 @@ async function newrecherche(searchBarValue){
     recettesFiltrees = await app.getMultiSearchingRecipe(tagsSaveIngredients, tagsSaveAppareils, tagsSaveUstenciles)
     console.log(recettesFiltrees)
     
+    
+    app.displayFilterdRecipes(recettesFiltrees)
     if(searchBarValue.length > 2){
         mainSearch(searchBarValue)
+        recettesFiltrees = await app.getMultiSearchingRecipe(tagsSaveIngredients, tagsSaveAppareils, tagsSaveUstenciles)
     }
-    
-   app.displayFilterdRecipes(recettesFiltrees)
     
     // recettesFiltrees = await app.getSearchingRecipe(searchBar.value)
 }

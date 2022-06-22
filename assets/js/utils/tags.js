@@ -37,6 +37,7 @@ function displayTag(tag, id){
     searchBar.value = ""
     rechercheStart()
 }
+
 // fonction supprimer tag
 function supprimerTag(tag){
     const tagSelect= document.getElementById(tag)
@@ -55,6 +56,18 @@ if (myIndexApp !== -1) {
 if (myIndexUst !== -1) {
    tagsSaveUstenciles.splice(myIndexUst, 1)
 }
-//On actualise la recherche
-rechercheStart() 
+verifTagsRestant() 
+}
+
+// Si plus de tag reinitialise la liste des recettes, sinon reactualise la liste en prenant en compte les tags restant
+function verifTagsRestant(){
+    if(tagsSaveIngredients.length < 1 && tagsSaveAppareils.length < 1 && tagsSaveUstenciles.length < 1){
+        const searchResultSectionBasic = document.querySelector('.search-result')
+        searchResultSectionBasic.innerHTML =''
+        app.init()
+    }
+    else{
+        //On actualise la recherche
+        rechercheStart()    
+    }
 }
