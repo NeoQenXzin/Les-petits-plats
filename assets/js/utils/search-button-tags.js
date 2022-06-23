@@ -19,12 +19,15 @@ let recettesFiltrees;
 
 // Afficher et générer template filtrage par ingrédient 
 async function rechercheRecetteIngredient() {
-    const listIngredients = await app.getAllIngredients(recettesFiltrees)
-    // const listIngredients =  tagsSaveIngredients[0] || tagsSaveAppareils[0] || tagsSaveUstenciles[0]  ?  recettesFiltrees = await app.getMultiSearchingRecipe(tagsSaveIngredients, tagsSaveAppareils, tagsSaveUstenciles)
-    // : recettesFiltrees =    await app.getAllIngredients(recettesFiltrees)
-    // console.log(recettesFiltrees);
-    // console.log(listIngredients);
-    // On reinitialise l'affichage des boutons filtres
+    
+    const multiRecettesFiltrees = await app.getMultiSearchingRecipe(tagsSaveIngredients, tagsSaveAppareils, tagsSaveUstenciles)
+let listIngredients;
+    if(tagsSaveIngredients[0] || tagsSaveAppareils[0] || tagsSaveUstenciles[0]){
+         listIngredients = await app.getAllIngredients(multiRecettesFiltrees)
+    }else {
+         listIngredients = await app.getAllIngredients(recettesFiltrees)
+    }
+ 
     initButtonFilter()
     //On remplace le bouton par un input
     ingredientButton.style.display = 'none'
@@ -38,6 +41,7 @@ async function rechercheRecetteIngredient() {
     //On construit le template de la liste
     const searchList = document.querySelector('.search-list-container-ingredients')
     for (let ingredient of listIngredients) {
+        console.log(ingredient);
                 let newingredient = ingredient.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,' ')
                 searchList.innerHTML += `
                 <button id="${newingredient}" class="buttons-list" onclick="displayTag('${newingredient}', id='newingredient')">${newingredient}</button
@@ -47,9 +51,13 @@ async function rechercheRecetteIngredient() {
 
 // Afficher et générer template filtrage par ustenciles
 async function rechercheRecetteUstencile() {
-    const listUstenciles = await app.getAllUstensils(recettesFiltrees)
-    console.log(listUstenciles);
-    console.log(recettesFiltrees);
+    const multiRecettesFiltrees = await app.getMultiSearchingRecipe(tagsSaveIngredients, tagsSaveAppareils, tagsSaveUstenciles)
+    let listUstenciles;
+        if(tagsSaveIngredients[0] || tagsSaveAppareils[0] || tagsSaveUstenciles[0]){
+             listUstenciles = await app.getAllUstensils(multiRecettesFiltrees)
+        }else {
+             listUstenciles = await app.getAllUstensils(recettesFiltrees)
+        }
 
     // On reinitialise l'affichage des boutons filtres
     initButtonFilter()
@@ -73,9 +81,14 @@ async function rechercheRecetteUstencile() {
 
 // Afficher et générer template filtrage par appareils
 async function rechercheRecetteAppareil() {
-    const listAppareils = await app.getAllAppliances(recettesFiltrees)
-    console.log(recettesFiltrees);
-    console.log(listAppareils);
+
+    const multiRecettesFiltrees = await app.getMultiSearchingRecipe(tagsSaveIngredients, tagsSaveAppareils, tagsSaveUstenciles)
+    let listAppareils;
+        if(tagsSaveIngredients[0] || tagsSaveAppareils[0] || tagsSaveUstenciles[0]){
+             listAppareils = await app.getAllAppliances(multiRecettesFiltrees)
+        }else {
+             listAppareils = await app.getAllAppliances(recettesFiltrees)
+        }
     // On reinitialise l'affichage des boutons filtres
     initButtonFilter()
     //On remplace le bouton par un input

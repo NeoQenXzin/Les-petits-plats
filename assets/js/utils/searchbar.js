@@ -26,7 +26,6 @@ async function rechercheStart() {
     }
     // Quand recherche vide toutes les recettes repassent en display flex
     if (searchBar.value === "") {
-        //if tag ... else a completer
         recettesFiltrees = await app.getAllRecipesData()
         const allCards = document.querySelectorAll('.recette-card')
         for (i = 0; i < allCards.length; i++) {
@@ -76,16 +75,12 @@ function mainSearch(searchBarRecherche) {
 
 // Recherche avec tags
 async function newrecherche(searchBarValue){
-    // console.log(searchBarValue, tagsSaveIngredients, recettesFiltrees);
     recettesFiltrees = await app.getMultiSearchingRecipe(tagsSaveIngredients, tagsSaveAppareils, tagsSaveUstenciles)
-    console.log(recettesFiltrees)
-    
-    
+
     app.displayFilterdRecipes(recettesFiltrees)
     if(searchBarValue.length > 2){
         mainSearch(searchBarValue)
         recettesFiltrees = await app.getMultiSearchingRecipe(tagsSaveIngredients, tagsSaveAppareils, tagsSaveUstenciles)
     }
-    
-    // recettesFiltrees = await app.getSearchingRecipe(searchBar.value)
+   
 }

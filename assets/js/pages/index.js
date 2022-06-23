@@ -100,7 +100,7 @@ return RecipeMultiSearchingTab
   
   // Tableau de tout les ingredients
   async getAllIngredients (listRecette) {
-     // ? pourquoi cette ligne non utilisé est indispensables ?
+ 
       const allRecipe =  await this.getAllRecipesData() 
       console.log(allRecipe);
       console.log(listRecette);
@@ -167,15 +167,3 @@ return RecipeMultiSearchingTab
   }
   const app = new App()
   app.init()
-  
-
-  
-// let array = ['rouge']
-// let array2 = 'rouge'
-// let array3 = ['jaune', 'bleu']
-
-// let checker = (arr, target) => target.every(v => arr.includes(v));
-
-// if(checker(array, array)){
-//   console.log("ok");
-// }
