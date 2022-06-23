@@ -65,6 +65,7 @@ section .section-search {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    flex-wrap: wrap;
     gap: 5px;
 }
 .tag-style {
@@ -72,6 +73,7 @@ section .section-search {
     color: #FFFFFF;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 .tag-style span {
     cursor: pointer;
@@ -80,6 +82,7 @@ section .section-search {
 .tags-ustensiles, .tags-appareils, .tags-ingredients{
     margin-top: 15px;
     display:flex;
+    flex-wrap: wrap;
     gap: 5px;
 }
 .tags-ustensiles .tag-style, .tags-appareils .tag-style, .tags-ingredients .tag-style{
@@ -187,7 +190,7 @@ section .section-search {
 .search-list{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    max-width: 50vw;
+    max-width: 58vw;
     flex-wrap: wrap;
     padding: 15px;
     gap:  0px 10px;
@@ -200,7 +203,13 @@ section .section-search {
     font-weight: 400;
     font-size: 18px;
     line-height: 21.6px;
-    display: flex;   
+    display: flex; 
+    text-align: start;  
+    width: 220px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 6px 5px;
 }
 .search-list button:hover{
     opacity: .5;
@@ -273,8 +282,12 @@ section.search-result {
 
 }
 
-span.nom-recette {
+/* span.nom-recette {
     max-width: 73%;
+} */
+.nom-recette {
+    width: 250px;
+    overflow-x: hidden;
 }
 
 .titre-duree-recette img {
@@ -334,7 +347,7 @@ span.nom-recette {
 }
 
 /*medium*/
-@media screen and (min-width: 768px) and (max-width: 1080px) {
+@media screen and (min-width: 768px) and (max-width: 1380px) {
     
     body {
         padding: 30px 5px;
@@ -348,7 +361,7 @@ span.nom-recette {
     }
 
     .recetteCard {
-        width: 360px;
+        max-width: 360px;
         height: 364px;
     }
     
@@ -360,6 +373,10 @@ span.nom-recette {
     .recette-content {
         height: calc(364px - 178px);
         padding: 20px 20px;
+    }
+    .nom-recette {
+        width: 220px;
+        overflow-x: hidden;
     }
 
 }
@@ -410,6 +427,23 @@ span.nom-recette {
         flex-wrap: wrap;
         justify-content: center;
         align-self: center;
+    }
+
+    .search-list{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 96vw;
+        flex-wrap: wrap;
+        padding: 5px;
+        gap:  0px 10px;
+    }
+    .search-list button {
+        font-size: 16px;
+        width: 120px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding: 6px 5px;
     }
 
 }

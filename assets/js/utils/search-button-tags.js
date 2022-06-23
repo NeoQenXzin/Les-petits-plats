@@ -20,8 +20,10 @@ let recettesFiltrees;
 // Afficher et générer template filtrage par ingrédient 
 async function rechercheRecetteIngredient() {
     const listIngredients = await app.getAllIngredients(recettesFiltrees)
-    console.log(recettesFiltrees);
-    console.log(listIngredients);
+    // const listIngredients =  tagsSaveIngredients[0] || tagsSaveAppareils[0] || tagsSaveUstenciles[0]  ?  recettesFiltrees = await app.getMultiSearchingRecipe(tagsSaveIngredients, tagsSaveAppareils, tagsSaveUstenciles)
+    // : recettesFiltrees =    await app.getAllIngredients(recettesFiltrees)
+    // console.log(recettesFiltrees);
+    // console.log(listIngredients);
     // On reinitialise l'affichage des boutons filtres
     initButtonFilter()
     //On remplace le bouton par un input
