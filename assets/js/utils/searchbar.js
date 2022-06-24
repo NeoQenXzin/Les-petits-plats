@@ -1,5 +1,14 @@
 /**Option1 recherche avec while/for */
-
+// si clic sur icone rechercher
+const iconSearch = document.getElementById('icon-search')
+iconSearch.addEventListener('click', () => {
+    if(searchBar.value.length > 2){
+        rechercheStart()
+        
+    }else{
+        alert('Vous devez rentrer au moins 3 caractères dans la barre de recherche')
+    }
+})
 const noResultDiv = document.getElementById('no-result')
 //recherche tags
 let tagsSaveIngredients = []

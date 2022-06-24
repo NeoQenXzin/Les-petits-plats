@@ -66,8 +66,7 @@ function verifTagsRestant(){
         searchResultSectionBasic.innerHTML =''
         app.init()
     }
-    else{
         //On actualise la recherche
         rechercheStart()    
-    }
+    
 }
