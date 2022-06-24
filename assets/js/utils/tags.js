@@ -65,7 +65,9 @@ function verifTagsRestant(){
         const searchResultSectionBasic = document.querySelector('.search-result')
         searchResultSectionBasic.innerHTML =''
         app.init()
+        searchBar.value = ''
     }
+    
         //On actualise la recherche
         rechercheStart()    
     
