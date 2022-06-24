@@ -64,10 +64,11 @@ function verifTagsRestant(){
     if(tagsSaveIngredients.length < 1 && tagsSaveAppareils.length < 1 && tagsSaveUstenciles.length < 1){
         const searchResultSectionBasic = document.querySelector('.search-result')
         searchResultSectionBasic.innerHTML =''
-        app.init()
+        // searchBar.value = ''
+        
     }
-    else{
+    
         //On actualise la recherche
         rechercheStart()    
-    }
+    
 }

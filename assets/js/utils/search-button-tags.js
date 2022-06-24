@@ -41,7 +41,6 @@ let listIngredients;
     //On construit le template de la liste
     const searchList = document.querySelector('.search-list-container-ingredients')
     for (let ingredient of listIngredients) {
-        console.log(ingredient);
                 let newingredient = ingredient.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,' ')
                 searchList.innerHTML += `
                 <button id="${newingredient}" class="buttons-list" onclick="displayTag('${newingredient}', id='newingredient')">${newingredient}</button
