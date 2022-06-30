@@ -308,6 +308,7 @@ section.search-result {
     font-size: 12px;
     font-weight: 700;
     line-height: 14.4px;
+    overflow: hidden;
 }
 
 .ingredients-recette span {
