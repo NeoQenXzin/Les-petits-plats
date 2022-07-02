@@ -3,9 +3,9 @@
 class App {
   constructor () {
       // api local
-      this.recipesApi = new RecipesApi('/data/recipes.json')
+      // this.recipesApi = new RecipesApi('/data/recipes.json')
       // api github
-      // this.recipesApi = new RecipesApi('https://neoqenxzin.github.io/Les-petits-plats/data/recipes.json')
+      this.recipesApi = new RecipesApi('https://neoqenxzin.github.io/Les-petits-plats/data/recipes.json')
     }
   
     // Je récupère mes recettes json
